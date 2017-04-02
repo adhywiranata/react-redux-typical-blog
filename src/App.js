@@ -27,7 +27,7 @@ class App extends Component {
           <div>
             <RaisedButton label="Default" style={{margin: 20}} />
           </div>
-          <div style={{width: '60%', marginLeft: '20%'}}>
+          <div style={{width: '50%', marginLeft: '25%'}}>
             { this.state.posts.map((post, index) => <CardExampleWithAvatar key={index} />) }
           </div>
         </div>

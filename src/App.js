@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import RefreshIndicator from 'material-ui/RefreshIndicator';
 
 import logo from './logo.svg';
 import './App.css';
@@ -25,7 +26,7 @@ class App extends Component {
             <h2>REACT REDUX TYPICAL BLOG</h2>
           </div>
           <div>
-            <RaisedButton label="Default" style={{margin: 20}} />
+            <LoadingSpinner />
           </div>
           <div style={{width: '50%', marginLeft: '25%'}}>
             { this.state.posts.map((post, index) => <CardExampleWithAvatar key={index} />) }
@@ -35,6 +36,17 @@ class App extends Component {
     );
   }
 }
+
+const LoadingSpinner = () => (
+  <RefreshIndicator
+      size={50}
+      left={0}
+      top={20}
+      loadingColor="#FF9800"
+      status="loading"
+      style={{display: 'inline-block', position: 'relative',}}
+    />
+);
 
 const CardExampleWithAvatar = () => (
   <Card style={{marginTop: 50, paddingBottom: 20}}>

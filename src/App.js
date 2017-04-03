@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
@@ -29,7 +29,7 @@ class App extends Component {
           <div>
             <LoadingSpinner />
           </div>
-          <div style={{width: '50%', marginLeft: '25%'}}>
+          <div style={{ width: '50%', marginLeft: '25%' }}>
             { this.state.posts.map((post, index) => <CardExampleWithAvatar key={index} />) }
           </div>
         </div>
@@ -40,22 +40,22 @@ class App extends Component {
 
 const LoadingSpinner = () => (
   <RefreshIndicator
-      size={50}
-      left={0}
-      top={20}
-      loadingColor="#FF9800"
-      status="loading"
-      style={{display: 'inline-block', position: 'relative',}}
-    />
+    size={50}
+    left={0}
+    top={20}
+    loadingColor="#FF9800"
+    status="loading"
+    style={{ display: 'inline-block', position: 'relative' }}
+  />
 );
 
 const CardExampleWithAvatar = () => (
-  <Card style={{marginTop: 50, paddingBottom: 20}}>
+  <Card style={{ marginTop: 50, paddingBottom: 20 }}>
     <CardHeader
       title="Dave Johnson"
       subtitle="Scientist"
       avatar="http://www.material-ui.com/images/jsa-128.jpg"
-      style={{float: 'left', textAlign: 'left'}}
+      style={{ float: 'left', textAlign: 'left' }}
     />
     <CardMedia>
       <img alt="space" src="http://www.deepspacephotography.com/wp-content/gallery/cache/203__1096x_headerimage_5.jpg" />
@@ -68,9 +68,13 @@ const CardExampleWithAvatar = () => (
       Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
     </CardText>
     <CardActions>
-      <RaisedButton label="Read More" primary={true} />
+      <RaisedButton label="Read More" primary />
     </CardActions>
   </Card>
 );
 
-export default App;
+mapStateToProps = state => ({
+  posts: state.posts,
+});
+
+export default connect(mapStateToProps, null)(App);

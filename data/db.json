@@ -9,7 +9,7 @@
       "tags": ["space", "science", "technology"],
       "comments": [
           {
-              "id": 352,
+              "_id": 352,
               "content": "Pertamax!",
               "author": {
                   "id": 41,
@@ -17,7 +17,7 @@
               }
           },
           {
-              "id": 353,
+              "_id": 353,
               "content": "Keduax!",
               "author": {
                   "id": 41,

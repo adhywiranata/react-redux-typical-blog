@@ -4,18 +4,17 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
+injectTapEventPlugin();
+
+import { fetchPosts } from './actions';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      posts: [
-        1, 2, 3, 4, 5,
-      ],
-    };
+  componentDidMount() {
+    this.props.fetchPosts();
   }
 
   render() {
@@ -26,11 +25,11 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h2>REACT REDUX TYPICAL BLOG</h2>
           </div>
-          <div>
+          { this.props.posts.length === 0 && (<div>
             <LoadingSpinner />
-          </div>
+          </div>)}
           <div style={{ width: '50%', marginLeft: '25%' }}>
-            { this.state.posts.map((post, index) => <CardExampleWithAvatar key={index} />) }
+            { this.props.posts.map((post, index) => <CardExampleWithAvatar key={index} />) }
           </div>
         </div>
       </MuiThemeProvider>
@@ -73,8 +72,12 @@ const CardExampleWithAvatar = () => (
   </Card>
 );
 
-mapStateToProps = state => ({
+const mapStateToProps = state => ({
   posts: state.posts,
 });
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = dispatch => ({
+  fetchPosts: () => dispatch(fetchPosts()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

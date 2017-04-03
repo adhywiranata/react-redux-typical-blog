@@ -3720,9 +3720,9 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
-normalizr@paularmstrong/normalizr:
+normalizr@^3.2.2:
   version "3.2.2"
-  resolved "https://codeload.github.com/paularmstrong/normalizr/tar.gz/a4c7e725469b9ac87c69c3daf37fc04a5c5bd76f"
+  resolved "https://registry.yarnpkg.com/normalizr/-/normalizr-3.2.2.tgz#542e915a260ca53279b76a63fb554185e9225f90"
 
 npmlog@^4.0.2:
   version "4.0.2"
@@ -4735,6 +4735,10 @@ require-uncached@^1.0.2:
 requires-port@1.0.x, requires-port@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+reselect@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-3.0.0.tgz#b2e35977f03048700028eaee3a8c0639e40e8f35"
 
 resolve-from@^1.0.0:
   version "1.0.1"

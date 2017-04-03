@@ -4,40 +4,31 @@
       "_id": 1,
       "title": "Art of Andromeda",
       "description": "The Beauty of Outer Space",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "coverPhoto": "http://www.deepspacephotography.com/wp-content/gallery/cache/203__1096x_headerimage_5.jpg",
       "tags": ["space", "science", "technology"],
       "createdAt": "2015-02-012 05:05:05",
-      "updatedAt": "2015-02-012 05:05:05",
+      "updatedAt": "2015-02-012 05:05:05"
     },
     {
       "_id": 2,
       "title": "Art of Andromeda",
       "description": "The Beauty of Outer Space",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "coverPhoto": "http://www.deepspacephotography.com/wp-content/gallery/cache/203__1096x_headerimage_5.jpg",
       "tags": ["space", "science", "technology"],
       "createdAt": "2015-02-012 05:05:05",
-      "updatedAt": "2015-02-012 05:05:05",
+      "updatedAt": "2015-02-012 05:05:05"
     },
     {
       "_id": 3,
       "title": "Art of Andromeda",
       "description": "The Beauty of Outer Space",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "coverPhoto": "http://www.deepspacephotography.com/wp-content/gallery/cache/203__1096x_headerimage_5.jpg",
       "tags": ["space", "science", "technology"],
       "createdAt": "2015-02-012 05:05:05",
-      "updatedAt": "2015-02-012 05:05:05",
+      "updatedAt": "2015-02-012 05:05:05"
     }
   ]
 }

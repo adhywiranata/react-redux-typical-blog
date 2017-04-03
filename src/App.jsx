@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 
 import logo from './logo.svg';
@@ -10,13 +10,14 @@ import './App.css';
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       posts: [
-        1, 2, 3, 4, 5
-      ]
-    }
+        1, 2, 3, 4, 5,
+      ],
+    };
   }
+
   render() {
     return (
       <MuiThemeProvider>

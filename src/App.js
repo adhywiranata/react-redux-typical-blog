@@ -23,7 +23,7 @@ class App extends Component {
             <LoadingSpinner />
           </div>)}
           <div style={{ width: '50%', marginLeft: '25%' }}>
-            { this.props.posts.map(post => <PostItemCard key={post._id} {...post} />) }
+            { this.props.posts.map(post => <PostItemCard key={post.id} {...post} />) }
           </div>
         </div>
       </MuiThemeProvider>

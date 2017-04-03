@@ -1,15 +1,7 @@
-import { Schema, arrayOf } from 'normalizr';
+import { schema } from 'normalizr';
 
-const postSchema = new Schema('posts', { idAttribute: '_id' });
-const commentSchema = new Schema('comments', { idAttribute: '_id' });
-const commentAuthorSchema = new Schema('commentAuthors', { idAttribute: '_id' });
+const comment = new schema.Entity('comments');
+const post = new schema.Entity('posts', { comments: [comment] });
+const postSchema = { posts: [post] };
 
-postSchema.define({
-  comments: arrayOf(commentSchema),
-});
-
-commentSchema.define({
-  author: commentAuthorSchema,
-});
-
-export { postSchema, commentSchema };
+export default postSchema;

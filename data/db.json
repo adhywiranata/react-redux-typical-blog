@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "_id": 1,
+      "id": 1,
       "title": "Art of Andromeda",
       "description": "The Beauty of Outer Space",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -9,7 +9,7 @@
       "tags": ["space", "science", "technology"],
       "comments": [
           {
-              "_id": 352,
+              "id": 352,
               "content": "Pertamax!",
               "author": {
                   "id": 41,
@@ -17,7 +17,7 @@
               }
           },
           {
-              "_id": 353,
+              "id": 353,
               "content": "Keduax!",
               "author": {
                   "id": 41,
@@ -29,7 +29,7 @@
       "updatedAt": "2015-02-012 05:05:05"
     },
     {
-      "_id": 2,
+      "id": 2,
       "title": "Art of Andromeda",
       "description": "The Beauty of Outer Space",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -40,7 +40,7 @@
       "updatedAt": "2015-02-012 05:05:05"
     },
     {
-      "_id": 3,
+      "id": 6,
       "title": "Art of Andromeda",
       "description": "The Beauty of Outer Space",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",

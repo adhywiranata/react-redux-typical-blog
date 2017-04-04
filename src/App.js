@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { denormalize } from 'normalizr';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+import postSchema from './schemas/post';
 import { fetchPosts } from './actions';
 import './App.css';
 import { Header, LoadingSpinner, PostItemCard } from './components';
@@ -31,9 +33,13 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  posts: state.posts,
-});
+const mapStateToProps = (state) => {
+  const result = state.posts.result === undefined ? { posts: [] } : state.posts.result;
+  const denormalizedState = denormalize(result, postSchema, state.posts.entities);
+  return {
+    posts: denormalizedState.posts,
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()),

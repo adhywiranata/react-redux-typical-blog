@@ -15,8 +15,7 @@ export const fetchPosts = () => (dispatch) => {
       .then((posts) => {
         const jsonRes = { posts: posts }
         const normalizedPosts = normalize(jsonRes, postSchema);
-        console.log(normalizedPosts);
-        dispatch(fetchPostsSuccess(posts))
+        dispatch(fetchPostsSuccess(normalizedPosts))
       })
   , 2000);
 };

@@ -5,7 +5,7 @@ import '../App.css';
 const Header = () => (
   <div className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
-    <h2>REACT REDUX TYPICAL BLOG</h2>
+    <h2>REACT-REDUX TYPICAL BLOG</h2>
   </div>
 );
 

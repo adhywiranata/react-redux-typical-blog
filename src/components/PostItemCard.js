@@ -21,4 +21,10 @@ const PostItemCard = props => (
   </Card>
 );
 
+PostItemCard.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  description: React.PropTypes.string.isRequired,
+  content: React.PropTypes.string.isRequired,
+};
+
 export default PostItemCard;

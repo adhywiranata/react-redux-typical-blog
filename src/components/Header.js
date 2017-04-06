@@ -27,4 +27,9 @@ const mapDispatchToProps = dispatch => ({
   setSearchKey: event => dispatch(setPostSearchKey(event.target.value)),
 });
 
+Header.propTypes = {
+  searchKey: React.PropTypes.string.isRequired,
+  setSearchKey: React.PropTypes.func.isRequired,
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

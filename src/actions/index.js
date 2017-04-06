@@ -13,9 +13,9 @@ export const fetchPosts = () => (dispatch) => {
     fetch('http://localhost:1234/posts')
       .then(res => res.json())
       .then((posts) => {
-        const jsonRes = { posts }
+        const jsonRes = { posts };
         const normalizedPosts = normalize(jsonRes, postSchema);
-        dispatch(fetchPostsSuccess(normalizedPosts))
+        dispatch(fetchPostsSuccess(normalizedPosts));
       })
   , 2000);
 };

@@ -24,3 +24,7 @@ export const setPostSearchKey = searchKey => ({
   type: ActionTypes.SET_SEARCH_KEY,
   payload: { searchKey },
 });
+
+export const resetPostSearchKey = () => ({
+  type: ActionTypes.RESET_SEARCH_KEY,
+});

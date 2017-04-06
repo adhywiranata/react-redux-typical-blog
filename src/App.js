@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -10,7 +10,7 @@ import { Header, LoadingSpinner, PostItemCard } from './components';
 
 injectTapEventPlugin();
 
-class App extends Component {
+class App extends React.Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
@@ -63,5 +63,12 @@ const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()),
   resetSearchKey: () => dispatch(resetPostSearchKey()),
 });
+
+App.propTypes = {
+  posts: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  searchKey: React.PropTypes.string.isRequired,
+  fetchPosts: React.PropTypes.func.isRequired,
+  resetSearchKey: React.PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

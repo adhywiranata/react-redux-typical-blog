@@ -5,7 +5,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { fetchPosts, resetPostSearchKey } from './actions';
 import { getFilteredPosts } from './selectors';
-// import { getFilteredPost } from './reducers/postReducer';
 import './App.css';
 import { Header, LoadingSpinner, PostItemCard } from './components';
 

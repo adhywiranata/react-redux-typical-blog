@@ -4,7 +4,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { fetchPosts, resetPostSearchKey } from './actions';
-import { getFilteredPost } from './reducers/postReducer';
+import { getFilteredPosts } from './selectors';
+// import { getFilteredPost } from './reducers/postReducer';
 import './App.css';
 import { Header, LoadingSpinner, PostItemCard } from './components';
 
@@ -56,7 +57,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   searchKey: state.postSearchKey,
-  posts: getFilteredPost(state.posts, state.postSearchKey),
+  posts: getFilteredPosts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

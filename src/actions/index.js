@@ -19,3 +19,8 @@ export const fetchPosts = () => (dispatch) => {
       })
   , 2000);
 };
+
+export const setPostSearchKey = searchKey => ({
+  type: ActionTypes.SET_SEARCH_KEY,
+  payload: { searchKey },
+});

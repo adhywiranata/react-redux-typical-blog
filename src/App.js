@@ -34,10 +34,11 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  const searchKey = state.postSearchKey;
   const result = state.posts.result === undefined ? { posts: [] } : state.posts.result;
   const denormalizedState = denormalize(result, postSchema, state.posts.entities);
   return {
-    posts: denormalizedState.posts,
+    posts: denormalizedState.posts.filter(post => post.title.includes(searchKey)),
   };
 };
 

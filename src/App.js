@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { denormalize } from 'normalizr';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import postSchema from './schemas/post';
 import { fetchPosts, resetPostSearchKey } from './actions';
+import { getFilteredPost } from './reducers/postReducer';
 import './App.css';
 import { Header, LoadingSpinner, PostItemCard } from './components';
 
@@ -55,15 +54,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const searchKey = state.postSearchKey;
-  const result = state.posts.result === undefined ? { posts: [] } : state.posts.result;
-  const denormalizedState = denormalize(result, postSchema, state.posts.entities);
-  return {
-    searchKey,
-    posts: denormalizedState.posts.filter(post => post.title.toLowerCase().includes(searchKey)),
-  };
-};
+const mapStateToProps = state => ({
+  searchKey: state.postSearchKey,
+  posts: getFilteredPost(state.posts, state.postSearchKey),
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()),

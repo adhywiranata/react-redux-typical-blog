@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import postSchema from './schemas/post';
-import { fetchPosts } from './actions';
+import { fetchPosts, resetPostSearchKey } from './actions';
 import './App.css';
 import { Header, LoadingSpinner, PostItemCard } from './components';
 
@@ -21,9 +21,31 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <Header />
-          { this.props.posts.length === 0 && (<div>
-            <LoadingSpinner />
-          </div>)}
+          { (this.props.posts.length === 0 && this.props.searchKey === '') && (
+            <div>
+              <LoadingSpinner />
+            </div>
+          )}
+          { (this.props.posts.length === 0 && this.props.searchKey !== '') && (
+            <div>
+              <button
+                onClick={this.props.resetSearchKey}
+                style={{
+                  background: 'transparent',
+                  fontSize: 20,
+                  margin: 20,
+                  color: '#FFFFFF',
+                  border: '1px solid white',
+                  outline: 'none',
+                  padding: 20,
+                  borderRadius: 10,
+                  cursor: 'pointer',
+                }}
+              >
+                Ooops! No News Found! Reset your keyword.
+              </button>
+            </div>
+          )}
           <div style={{ width: '50%', marginLeft: '25%' }}>
             { this.props.posts.map(post => <PostItemCard key={post.id} {...post} />) }
           </div>
@@ -38,12 +60,14 @@ const mapStateToProps = (state) => {
   const result = state.posts.result === undefined ? { posts: [] } : state.posts.result;
   const denormalizedState = denormalize(result, postSchema, state.posts.entities);
   return {
-    posts: denormalizedState.posts.filter(post => post.title.includes(searchKey)),
+    searchKey,
+    posts: denormalizedState.posts.filter(post => post.title.toLowerCase().includes(searchKey)),
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()),
+  resetSearchKey: () => dispatch(resetPostSearchKey()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

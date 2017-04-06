@@ -13,13 +13,18 @@ const Header = props => (
       type="text"
       placeholder="Search for awesome news..."
       onChange={props.setSearchKey}
+      value={props.searchKey}
       style={{ width: '50%', margin: 10, padding: 10, fontSize: 20, outline: 'none' }}
     />
   </div>
 );
 
+const mapStateToProps = state => ({
+  searchKey: state.postSearchKey,
+});
+
 const mapDispatchToProps = dispatch => ({
   setSearchKey: event => dispatch(setPostSearchKey(event.target.value)),
 });
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -3,7 +3,8 @@ Just a typical blog app to implement some of the best practices of using React a
 
 ## What Used in this App 🚀
 - React, of course
-- Redux, for predictable state management
+- React-Material-UI-Kit, for the sake of beauty ✨ 💓
+- Redux, for predictable state management 👀
 - Redux-thunk, redux middleware for async action creators
 - Redux-logger, redux middleware for logging purposes
 - Normalizr, to normalize state in Redux in order to avoid nested object/arrays and keep states flat

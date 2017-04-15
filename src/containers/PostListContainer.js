@@ -10,8 +10,54 @@ import { Header, LoadingSpinner, PostItemCard } from '../components';
 
 injectTapEventPlugin();
 
+const PostFailedInfo = ({ reloadPostFetch }) => (
+  <div>
+    <button
+      onClick={reloadPostFetch}
+      style={{
+        background: 'transparent',
+        fontSize: 20,
+        margin: 20,
+        color: '#FFFFFF',
+        border: '1px solid white',
+        outline: 'none',
+        padding: 20,
+        borderRadius: 10,
+        cursor: 'pointer',
+      }}
+    >
+      Ooops! Something went wrong. Click here to reload data.
+    </button>
+  </div>
+);
+
+const PostListInfo = ({ resetSearchKey }) => (
+  <div>
+    <button
+      onClick={resetSearchKey}
+      style={{
+        background: 'transparent',
+        fontSize: 20,
+        margin: 20,
+        color: '#FFFFFF',
+        border: '1px solid white',
+        outline: 'none',
+        padding: 20,
+        borderRadius: 10,
+        cursor: 'pointer',
+      }}
+    >
+      Ooops! Not found. Try another keyword.
+    </button>
+  </div>
+);
+
 class PostListContainer extends React.Component {
   componentDidMount() {
+    this.props.fetchPosts();
+  }
+
+  reloadPostFetch() {
     this.props.fetchPosts();
   }
 
@@ -20,30 +66,16 @@ class PostListContainer extends React.Component {
       <MuiThemeProvider>
         <div className="App">
           <Header />
-          { (this.props.posts.length === 0 && this.props.searchKey === '') && (
+          { this.props.isFetchingPost && (
             <div>
               <LoadingSpinner />
             </div>
           )}
           { (this.props.posts.length === 0 && this.props.searchKey !== '') && (
-            <div>
-              <button
-                onClick={this.props.resetSearchKey}
-                style={{
-                  background: 'transparent',
-                  fontSize: 20,
-                  margin: 20,
-                  color: '#FFFFFF',
-                  border: '1px solid white',
-                  outline: 'none',
-                  padding: 20,
-                  borderRadius: 10,
-                  cursor: 'pointer',
-                }}
-              >
-                Ooops! No News Found! Reset your keyword.
-              </button>
-            </div>
+            <PostListInfo resetSearchKey={this.props.resetSearchKey} />
+          )}
+          { (!this.props.isFetchingPost && this.props.isFetchingPostError) && (
+            <PostFailedInfo reloadPostFetch={() => this.reloadPostFetch()} />
           )}
           <div style={{ width: '50%', marginLeft: '25%' }}>
             { this.props.posts.map(post => <PostItemCard key={post.id} {...post} />) }
@@ -57,7 +89,8 @@ class PostListContainer extends React.Component {
 const mapStateToProps = state => ({
   searchKey: state.postSearchKey,
   posts: getFilteredPosts(state),
-  isFetchingPost: state.isFething,
+  isFetchingPost: state.posts.isFetching,
+  isFetchingPostError: state.posts.isFetchingError,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -67,6 +100,8 @@ const mapDispatchToProps = dispatch => ({
 
 PostListContainer.propTypes = {
   posts: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  isFetchingPost: React.PropTypes.bool.isRequired,
+  isFetchingPostError: React.PropTypes.bool.isRequired,
   searchKey: React.PropTypes.string.isRequired,
   fetchPosts: React.PropTypes.func.isRequired,
   resetSearchKey: React.PropTypes.func.isRequired,

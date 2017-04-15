@@ -16,6 +16,8 @@ const postReducer = (state = initialState, action) => {
         isFetchingError: false,
         data: action.payload,
       };
+    case ActionTypes.FETCH_POSTS_FAILED:
+      return { ...state, isFetching: false, isFetchingError: true };
     default:
       return state;
   }

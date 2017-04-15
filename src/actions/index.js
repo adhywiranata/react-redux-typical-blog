@@ -12,6 +12,10 @@ export const fetchPostsSuccess = posts => ({
   payload: posts,
 });
 
+export const fetchPostsFailed = () => ({
+  type: ActionTypes.FETCH_POSTS_FAILED,
+});
+
 export const fetchPosts = () => (dispatch) => {
   dispatch(fetchPostsRequest());
   setTimeout(() =>
@@ -22,6 +26,7 @@ export const fetchPosts = () => (dispatch) => {
         const normalizedPosts = normalize(jsonRes, postSchema);
         dispatch(fetchPostsSuccess(normalizedPosts));
       })
+      .catch(() => dispatch(fetchPostsFailed()))
   , 2000);
 };
 

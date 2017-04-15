@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import Waypoint from 'react-waypoint';
 
 import { fetchPosts, resetPostSearchKey } from '../actions';
 import { getFilteredPosts } from '../selectors';
@@ -9,6 +10,23 @@ import '../App.css';
 import { Header, LoadingSpinner, PostItemCard } from '../components';
 
 injectTapEventPlugin();
+
+const Footer = () => (
+  <div
+    style={{
+      boxSizing: 'border-box',
+      marginTop: 50,
+      padding: 30,
+      background: '#000',
+      height: 100,
+      width: '100%',
+      color: '#FFFFFF',
+      textAlign: 'center',
+    }}
+  >
+    footah
+  </div>
+);
 
 const PostFailedInfo = ({ reloadPostFetch }) => (
   <div>
@@ -61,25 +79,34 @@ class PostListContainer extends React.Component {
     this.props.fetchPosts();
   }
 
+  waypointEnter() {
+    this.props.fetchPosts();
+    console.log('waypointEnter');
+  }
+
   render() {
     return (
       <MuiThemeProvider>
         <div className="App">
           <Header />
-          { this.props.isFetchingPost && (
-            <div>
-              <LoadingSpinner />
+            <div style={{ minHeight: 1000 }}>
+              { (this.props.posts.length === 0 && this.props.searchKey !== '') && (
+                <PostListInfo resetSearchKey={this.props.resetSearchKey} />
+              )}
+              { (!this.props.isFetchingPost && this.props.isFetchingPostError) && (
+                <PostFailedInfo reloadPostFetch={() => this.reloadPostFetch()} />
+              )}
+              <div style={{ width: '50%', marginLeft: '25%' }}>
+                { this.props.posts.map(post => <PostItemCard key={post.id} {...post} />) }
+              </div>
+              <Waypoint onEnter={() => this.waypointEnter()} bottomOffset={'0px'} />
+              { this.props.isFetchingPost && (
+                <div>
+                  <LoadingSpinner />
+                </div>
+              )}
             </div>
-          )}
-          { (this.props.posts.length === 0 && this.props.searchKey !== '') && (
-            <PostListInfo resetSearchKey={this.props.resetSearchKey} />
-          )}
-          { (!this.props.isFetchingPost && this.props.isFetchingPostError) && (
-            <PostFailedInfo reloadPostFetch={() => this.reloadPostFetch()} />
-          )}
-          <div style={{ width: '50%', marginLeft: '25%' }}>
-            { this.props.posts.map(post => <PostItemCard key={post.id} {...post} />) }
-          </div>
+          <Footer />
         </div>
       </MuiThemeProvider>
     );

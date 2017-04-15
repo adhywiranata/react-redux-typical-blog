@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -59,6 +57,7 @@ class PostListContainer extends React.Component {
 const mapStateToProps = state => ({
   searchKey: state.postSearchKey,
   posts: getFilteredPosts(state),
+  isFetchingPost: state.isFething,
 });
 
 const mapDispatchToProps = dispatch => ({

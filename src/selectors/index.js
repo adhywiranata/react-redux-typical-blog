@@ -5,16 +5,14 @@ import { denormalize } from 'normalizr';
 
 import postSchema from '../schemas/post';
 
-const getPosts = (state) => {
-  const result = state.posts.result === undefined ? { posts: [] } : state.posts.result;
-  const denormalizedPost = denormalize(result, postSchema, state.posts.entities);
+const getPosts = ({ posts }) => {
+  const { data } = posts;
+  const result = data.result === undefined ? { posts: [] } : data.result;
+  const denormalizedPost = denormalize(result, postSchema, data.entities);
   return denormalizedPost.posts;
 };
 
-const getPostSearchKey = state => state.postSearchKey;
-
-const testFlow = (num: number): number => num;
-console.log(testFlow(5));
+const getPostSearchKey = ({ postSearchKey }) => postSearchKey;
 
 export const getFilteredPosts = createSelector(
   [getPosts, getPostSearchKey],

@@ -1,9 +1,14 @@
 import * as ActionTypes from '../actions/actionTypes';
 
-const postReducer = (state = {}, action) => {
+const initialState = {
+  isFething: false,
+  data: [],
+};
+
+const postReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.FETCH_POSTS_SUCCESS:
-      return action.payload;
+      return { isFetching: false, data: action.payload };
     default:
       return state;
   }

@@ -34,7 +34,7 @@
     },
     {
       "id": 2,
-      "title": "Art of Andromeda",
+      "title": "Lorem Ipsum Mate",
       "description": "The Beauty of Outer Space",
       "author": {
           "id": 21,
@@ -58,7 +58,52 @@
     },
     {
       "id": 6,
-      "title": "Art of Andromeda",
+      "title": "Developing a Firebase Database",
+      "description": "The Beauty of Outer Space",
+      "author": {
+          "id": 21,
+          "name": "Mikey"
+      },
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "coverPhoto": "http://www.deepspacephotography.com/wp-content/gallery/cache/203__1096x_headerimage_5.jpg",
+      "tags": ["space", "science", "technology"],
+      "comments": [],
+      "createdAt": "2015-02-012 05:05:05",
+      "updatedAt": "2015-02-012 05:05:05"
+    },
+    {
+      "id": 7,
+      "title": "Reaching out the Perfect Zen",
+      "description": "The Beauty of Outer Space",
+      "author": {
+          "id": 21,
+          "name": "Mikey"
+      },
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "coverPhoto": "http://www.deepspacephotography.com/wp-content/gallery/cache/203__1096x_headerimage_5.jpg",
+      "tags": ["space", "science", "technology"],
+      "comments": [],
+      "createdAt": "2015-02-012 05:05:05",
+      "updatedAt": "2015-02-012 05:05:05"
+    },
+    {
+      "id": 8,
+      "title": "Be a Good Developer",
+      "description": "The Beauty of Outer Space",
+      "author": {
+          "id": 21,
+          "name": "Mikey"
+      },
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "coverPhoto": "http://www.deepspacephotography.com/wp-content/gallery/cache/203__1096x_headerimage_5.jpg",
+      "tags": ["space", "science", "technology"],
+      "comments": [],
+      "createdAt": "2015-02-012 05:05:05",
+      "updatedAt": "2015-02-012 05:05:05"
+    },
+    {
+      "id": 9,
+      "title": "Enhancing the Best of Both World",
       "description": "The Beauty of Outer Space",
       "author": {
           "id": 21,

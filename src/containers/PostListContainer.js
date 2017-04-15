@@ -99,7 +99,6 @@ class PostListContainer extends React.Component {
               <div style={{ width: '50%', marginLeft: '25%' }}>
                 { this.props.posts.map(post => <PostItemCard key={post.id} {...post} />) }
               </div>
-              <Waypoint onEnter={() => this.waypointEnter()} bottomOffset={'0px'} />
               { this.props.isFetchingPost && (
                 <div>
                   <LoadingSpinner />
@@ -107,6 +106,7 @@ class PostListContainer extends React.Component {
               )}
             </div>
           <Footer />
+          <Waypoint onEnter={() => this.waypointEnter()} bottomOffset={'0px'} />
         </div>
       </MuiThemeProvider>
     );

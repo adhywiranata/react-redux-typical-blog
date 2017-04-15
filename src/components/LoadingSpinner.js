@@ -5,10 +5,10 @@ const LoadingSpinner = () => (
   <RefreshIndicator
     size={50}
     left={0}
-    top={20}
+    top={0}
     loadingColor="#FF9800"
     status="loading"
-    style={{ display: 'inline-block', position: 'relative' }}
+    style={{ display: 'inline-block', margin: 50, position: 'relative' }}
   />
 );
 

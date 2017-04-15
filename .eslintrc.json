@@ -68,7 +68,7 @@
     },
     "settings": {
       "flowtype": {
-        "onlyFilesWithFlowAnnotation": false
+        "onlyFilesWithFlowAnnotation": true
       }
     }
 }

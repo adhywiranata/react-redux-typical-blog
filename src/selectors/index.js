@@ -1,4 +1,5 @@
 // @flow
+
 import { createSelector } from 'reselect';
 import { denormalize } from 'normalizr';
 
@@ -12,12 +13,12 @@ const getPosts = (state) => {
 
 const getPostSearchKey = state => state.postSearchKey;
 
-const testFlow = (num: number) : number => num;
+const testFlow = (num: number): number => num;
 console.log(testFlow(5));
 
 export const getFilteredPosts = createSelector(
   [getPosts, getPostSearchKey],
-  (posts, postSearchKey) => (
+  (posts, postSearchKey: string) => (
     posts.filter(post => post.title.toLowerCase().includes(postSearchKey))
   ),
 );

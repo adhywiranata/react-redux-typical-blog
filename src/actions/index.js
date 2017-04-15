@@ -3,12 +3,17 @@ import { normalize } from 'normalizr';
 import * as ActionTypes from './actionTypes';
 import postSchema from '../schemas/post';
 
+export const fetchPostsRequest = () => ({
+  type: ActionTypes.FETCH_POSTS_REQUEST,
+});
+
 export const fetchPostsSuccess = posts => ({
   type: ActionTypes.FETCH_POSTS_SUCCESS,
   payload: posts,
 });
 
 export const fetchPosts = () => (dispatch) => {
+  dispatch(fetchPostsRequest());
   setTimeout(() =>
     fetch('http://localhost:1234/posts')
       .then(res => res.json())

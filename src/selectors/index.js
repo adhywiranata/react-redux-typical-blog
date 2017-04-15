@@ -1,5 +1,7 @@
+// @flow
 import { createSelector } from 'reselect';
 import { denormalize } from 'normalizr';
+
 import postSchema from '../schemas/post';
 
 const getPosts = (state) => {
@@ -9,6 +11,9 @@ const getPosts = (state) => {
 };
 
 const getPostSearchKey = state => state.postSearchKey;
+
+const testFlow = (num: number) : number => num;
+console.log(testFlow(5));
 
 export const getFilteredPosts = createSelector(
   [getPosts, getPostSearchKey],
